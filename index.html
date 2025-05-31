@@ -6,12 +6,37 @@
   <title>GeneZ</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <style>
+    .btn-container {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: #0070f3;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+      background: #0059c1;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Welcome to GeneZ</h1>
     <p>Your DNA, your code, your future.</p>
-    <button>DNA Encoder Coming Soon...</button>
+    <div class="btn-container">
+      <a href="encoder.html" class="btn">🧬 Encode DNA</a>
+      <a href="decoder.html" class="btn">🔓 Decode DNA</a>
+    </div>
   </div>
 </body>
 </html>
