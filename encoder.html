@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encode DNA | GeneZ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🧬 DNA Encoder</h1>
+    <p>Type something and we’ll encode it in DNA format.</p>
+    <input type="text" id="textInput" placeholder="Enter text..." />
+    <button onclick="encode()">Encode</button>
+    <p id="output"></p>
+    <a href="index.html">⬅️ Back</a>
+  </div>
+
+  <script>
+    const map = { A: "00", C: "01", G: "10", T: "11" };
+    const bases = Object.keys(map);
+
+    function encode() {
+      const input = document.getElementById("textInput").value;
+      let binary = "";
+      for (let char of input) {
+        binary += char.charCodeAt(0).toString(2).padStart(8, "0");
+      }
+      let dna = "";
+      for (let i = 0; i < binary.length; i += 2) {
+        let bits = binary.slice(i, i + 2);
+        let base = Object.entries(map).find(([_, b]) => b === bits);
+        dna += base ? base[0] : "?";
+      }
+      document.getElementById("output").textContent = dna;
+    }
+  </script>
+</body>
+</html>
