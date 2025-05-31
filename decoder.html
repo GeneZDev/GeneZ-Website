@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decode DNA | GeneZ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🔓 DNA Decoder</h1>
+    <p>Paste a DNA sequence and we’ll decode it to text.</p>
+    <input type="text" id="dnaInput" placeholder="Enter DNA (ACGT)..." />
+    <button onclick="decode()">Decode</button>
+    <p id="decodedOutput"></p>
+    <a href="index.html">⬅️ Back</a>
+  </div>
+
+  <script>
+    const map = { A: "00", C: "01", G: "10", T: "11" };
+
+    function decode() {
+      const input = document.getElementById("dnaInput").value.toUpperCase();
+      let binary = "";
+      for (let base of input) {
+        binary += map[base] || "";
+      }
+
+      let output = "";
+      for (let i = 0; i < binary.length; i += 8) {
+        const byte = binary.slice(i, i + 8);
+        if (byte.length === 8) {
+          output += String.fromCharCode(parseInt(byte, 2));
+        }
+      }
+      document.getElementById("decodedOutput").textContent = output;
+    }
+  </script>
+</body>
+</html>
