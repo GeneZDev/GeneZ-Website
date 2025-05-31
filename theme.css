@@ -1,0 +1,37 @@
+:root {
+  --bg-color: #e0f7fa;
+  --text-color: #000;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --btn-bg: #2196f3;
+  --btn-color: white;
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: #fff;
+  --card-bg: rgba(30, 30, 30, 0.9);
+  --btn-bg: #bb86fc;
+  --btn-color: #000;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  background: var(--card-bg);
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
